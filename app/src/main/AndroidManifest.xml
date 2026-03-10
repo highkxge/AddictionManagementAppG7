@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.yourname.addictionmanager">
+
+    <!-- Usage stats -->
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- Post Notifications (Android 13+) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+    <!-- Display over other apps (Required for overlays/lock screens) -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <!-- Camera -->
+    <uses-permission
+        android:name="android.permission.CAMERA" />
+
+    <!-- Visibility to all apps (Essential for Addiction Manager) -->
+    <uses-permission 
+        android:name="android.permission.QUERY_ALL_PACKAGES" 
+        tools:ignore="QueryAllPackagesPermission" />
+
+    <!-- Foreground service (all versions) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <!-- Specific Foreground Service Types (Android 14+) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" tools:targetApi="34"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" tools:targetApi="34"/>
+
+
+    <application
+        android:name=".MainApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AddictionManagementApp">
+
+        <activity
+            android:name=".ui.password.PasswordActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.password.AppLockActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Transparent"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"
+            android:noHistory="true" />
+
+        <activity
+            android:name="com.yourname.addictionmanager.camera.CameraPreviewActivity"
+            android:theme="@style/Theme.Transparent"
+            android:excludeFromRecents="true"
+            android:taskAffinity=""
+            android:finishOnTaskLaunch="true" />
+
+        <!-- 🔥 Warning popup -->
+        <activity
+            android:name="com.yourname.addictionmanager.camera.WarningActivity"
+            android:theme="@style/Theme.Transparent"
+            android:excludeFromRecents="true"
+            android:taskAffinity=""
+            android:finishOnTaskLaunch="true"/>
+
+        <!-- Accessibility -->
+        <service
+            android:name="com.yourname.addictionmanager.MyAccessibilityService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="false">
+
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+        <!-- Camera protection engine -->
+        <service
+            android:name="com.yourname.addictionmanager.camera.CameraProtectionService"
+            android:foregroundServiceType="camera"
+            android:exported="false" />
+
+        <service
+            android:name=".services.AppMonitorService"
+            android:foregroundServiceType="dataSync"
+            android:exported="false" />
+
+        <!-- Main app -->
+        <activity
+            android:name="com.yourname.addictionmanager.MainActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+    </application>
+</manifest>

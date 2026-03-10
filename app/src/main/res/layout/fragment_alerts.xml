@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#121212">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.AddictionManagementApp.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.AddictionManagementApp.PopupOverlay"
+            app:title="Alerts Configuration" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchAlerts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Master Alerts Toggle"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#33FFFFFF"
+                android:layout_marginVertical="16dp"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchNotifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="System Notifications"
+                android:textColor="#FFFFFF"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchPopupAlerts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Full Screen Popups"
+                android:textColor="#FFFFFF"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchLockApps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Strict App Locking"
+                android:textColor="#FFFFFF"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchCamera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Camera Distance Blocking"
+                android:textColor="#FFFFFF"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Note: Individual app limits and the total daily limit are now configured in the Settings tab."
+                android:textColor="#AAAAAA"
+                android:textSize="14sp"
+                android:fontStyle="italic"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

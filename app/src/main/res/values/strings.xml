@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AddictionManagementApp</string>
+    <string name="accessibility_service_description">
+    Detects foreground app usage to help manage screen addiction.
+</string>
+
+</resources>

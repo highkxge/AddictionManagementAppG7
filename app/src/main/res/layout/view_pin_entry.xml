@@ -1,0 +1,22 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditText
+        android:id="@+id/pin_digit_1"
+        style="@style/PinDigit"
+        android:nextFocusForward="@id/pin_digit_2" />
+
+    <EditText
+        android:id="@+id/pin_digit_2"
+        style="@style/PinDigit"
+        android:nextFocusForward="@id/pin_digit_3" />
+
+    <EditText
+        android:id="@+id/pin_digit_3"
+        style="@style/PinDigit"
+        android:nextFocusForward="@+id/pin_digit_4" />
+
+    <EditText
+        android:id="@+id/pin_digit_4"
+        style="@style/PinDigit" />
+
+</merge>

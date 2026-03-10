@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.AddictionManagementApp"
+        parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">#4CAF50</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="android:colorBackground">#121212</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
+
+    </style>
+
+    <style name="Theme.AddictionManagementApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <!-- Changed to Dark theme to ensure white font in 3-dot menu -->
+    <style name="Theme.AddictionManagementApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
+
+    <style name="PinDigit" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:inputType">number</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:backgroundTint">#4CAF50</item>
+        <item name="android:digits">0123456789</item>
+    </style>
+
+</resources>
